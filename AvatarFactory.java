@@ -13,17 +13,25 @@ public class AvatarFactory {
 		if (avaName.equals("MattAvatar")) {
 			// create new HumanAvatar - pass in parameters 
             return new MattAvatar(tm, point);
-        } 
-		// LocNessMonster:
+        } // Fairy
+		else if (avaName.equals("FairyAvatar")) {
+			// create new HumanAvatar - pass in parameters 
+            return new FairyAvatar(tm, point);
+		}// Penguin
+		else if (avaName.equals("PenguinAvatar")) {
+			// create new HumanAvatar - pass in parameters 
+            return new PenguinAvatar(tm, point);
+		}// Eagle
+		else if (avaName.equals("EagleAvatar")) {
+			return new EagleAvatar(tm, point);
+		}
 		
-		// Duck:
-		
-		// Unicorn: 
 		
 		// Error checking: 
 			// thrown if avaName string does not match the expected class names.
-        throw new InvalidTerrainTypeException("Invalid Avatar type: " + avaName);
-	
+		else {
+		throw new InvalidTerrainTypeException("Invalid Avatar type: " + avaName);
+		}
 	}
 
 }

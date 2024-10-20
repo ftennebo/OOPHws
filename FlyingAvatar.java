@@ -34,7 +34,7 @@ public abstract class FlyingAvatar extends Avatar{
 				mountains.add(option);
 			}
 		}
-		if (!mountains.isEmpty()) {
+		if (!mountains.isEmpty() && mattMoves) {
             this.point = mountains.get(new Random().nextInt(mountains.size()));
         }
 	}

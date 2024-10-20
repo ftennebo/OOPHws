@@ -12,22 +12,17 @@ public class Main {
             // Make the display panel
             SimWindow window = new SimWindow(tm);
             
-            // Starting locations for varying avatars
-            GridPoint MstartingLoc = new GridPoint(5, 5);
-            GridPoint PstartingLoc = new GridPoint(4, 14);
-            GridPoint FlystartingLoc = new GridPoint(9, 3);
-            GridPoint FlystartingLoc2 = new GridPoint(14, 9);
-            // Create individual Avatar objects
-            MattAvatar matty = new MattAvatar(tm, MstartingLoc); 
-            PenguinAvatar pen = new PenguinAvatar(tm, PstartingLoc);
-            FairyAvatar freyia = new FairyAvatar(tm, FlystartingLoc);
-            EagleAvatar america = new EagleAvatar(tm, FlystartingLoc2);
+            // Starting location 
+            GridPoint startingLoc = new GridPoint(5, 5);
             
-            // add avatars to list to be drawn in SimWindow
-            window.addAvatar(matty);
-            window.addAvatar(pen);
-            window.addAvatar(freyia);
-            window.addAvatar(america);
+            String[] avatarNames = { "MattAvatar", "PenguinAvatar", "FairyAvatar", "EagleAvatar" };
+            
+            // Create individual Avatar objects
+            for (String name : avatarNames) {
+            	Avatar avatar = AvatarFactory.newAvatar(name, tm, startingLoc);
+            	window.addAvatar(avatar); // add avatars to list
+            }
+            
             
             // Start the simulation
             window.runSimulation(); // inc avatar movement
